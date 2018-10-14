@@ -14,7 +14,7 @@
     "jQuery",
     "jQuery plugin"
   ],
-  "license": "MIT",
+  "license": "GNU GPL 3.0",
   "ignore": [
     "**/.*",
     "node_modules",

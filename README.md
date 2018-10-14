@@ -1,31 +1,31 @@
 # simpleAnchorMenu by Alexander Sharkov
-v.1.0.0
+v.1.0.1
 
 ### What is it?
 >It's a little jQuery module developed to help for website developers, when they need to create automatically and dinamicly menu items to headers with id's.
 
-### [Demo](https://bladeaweb.github.io/simpleAnchorMenu/)
+### [Demo](https://bladeaweb.github.io/simpleAnchorsMenu/)
 
 ### 1.Getting Started
 * Download source or clone repository
 
 ###### If you use Bower
 ```
-    bower install simpleAnchorMenu -save
+    bower install simpleAnchorsMenu -save
 ```
 ###### If you use NPM
 ```
     npm install simpleanchorsmenu
 ```
 * Load jQuery(1.7+) 
-* Include source files simpleAnchorMenu.min.js or simpleAnchorMenu.js 
-of simpleAnchorMenu into your project
+* Include source files simpleAnchorsMenu.min.js or simpleAnchorsMenu.js 
+of simpleAnchorsMenu into your project
 * And read this manual to start work the script in your project.
 
 ###### Html before close body
 ```html
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="your path/simpleAnchorMenu.min.js"></script>
+<script src="your path/simpleAnchorsMenu.min.js"></script>
 ```
 ### 2.Call the plugin
 Now call the simpleAnchorMenu initialize function for your selector 
@@ -33,11 +33,11 @@ and after that you could see inserted links to anchors to selected menu <ul> con
 
 ###### JavaScript default call
 ```javascript
-$("#some-id").simpleAnchorMenu();
+$("#some-id").simpleAnchorsMenu();
 ```
 ###### JavaScript call with options (in this case I show you what is default values for options)
 ```javascript
-$("#some-id").simpleAnchorMenu({
+$("#some-id").simpleAnchorsMenu({
     menu: "#subMenu",
     menuOutOfContainer: false,
     createMenu: false,

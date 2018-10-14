@@ -1,6 +1,6 @@
 {
   "name": "simpleanchorsmenu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "It's a little jQuery module developed to help for website developers, when they need to create automatically and dinamicly menu items to headers with id's.",
   "main": "source/js/simpleAnchorsMenu.min.js",
   "repository": {

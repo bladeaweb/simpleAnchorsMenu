@@ -23,7 +23,7 @@ module.exports = function (grunt) {
     },
     clean: {
       js: [
-        'source/js/simpleAnchorMenu.min.js'
+        'source/js/simpleAnchorsMenu.min.js'
       ]
     },
     uglify: {
@@ -34,7 +34,7 @@ module.exports = function (grunt) {
           }
         },
         files: {
-          'source/js/simpleAnchorMenu.min.js': ['source/js/simpleAnchorMenu.js']
+          'source/js/simpleAnchorsMenu.min.js': ['source/js/simpleAnchorsMenu.js']
         }
       }
     },
@@ -44,7 +44,7 @@ module.exports = function (grunt) {
         livereload: true
       },
       scripts: {
-        files: ['source/js/simpleAnchorMenu.js'],
+        files: ['source/js/simpleAnchorsMenu.js'],
         tasks: ['clean:js', 'uglify:prod']
       }
     }
