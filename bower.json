@@ -1,0 +1,25 @@
+{
+  "name": "simpleAnchorsMenu",
+  "homepage": "https://github.com/bladeaweb/simpleAnchorsMenu",
+  "authors": [
+    "Alexander Sharkov <blade.didan@gmail.com>"
+  ],
+  "description": "It's a little jQuery module developed to help for website developers, when they need to create dinamicly menu items to headers with id's.",
+  "main": "source/js/simpleAnchorsMenu.min.js",
+  "keywords": [
+    "simple anchors menu",
+    "anchors menu",
+    "jQuery anchors menu",
+    "jQuery simple anchors menu",
+    "jQuery",
+    "jQuery plugin"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

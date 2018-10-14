@@ -1,0 +1,37 @@
+{
+  "name": "simpleanchorsmenu",
+  "version": "1.0.0",
+  "description": "It's a little jQuery module developed to help for website developers, when they need to create automatically and dinamicly menu items to headers with id's.",
+  "main": "source/js/simpleAnchorsMenu.min.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bladeaweb/simpleAnchorsMenu.git"
+  },
+  "keywords": [
+    "simple anchors menu",
+    "anchors menu",
+    "jQuery anchors menu",
+    "jQuery simple anchors menu",
+    "jQuery",
+    "jQuery plugin"
+  ],
+  "author": "Alexander Sharkov <blade.didan@gmail.com>",
+  "license": "GNU GPL 3.0",
+  "bugs": {
+    "url": "https://github.com/bladeaweb/simpleAnchorsMenu/issues"
+  },
+  "homepage": "https://github.com/bladeaweb/simpleAnchorsMenu#readme",
+  "devDependencies": {
+    "grunt": "^1.0.2",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-uglify": "^3.3.0",
+    "grunt-contrib-watch": "^1.0.0"
+  },
+  "scripts": {
+    "postinstall": "npm run default",
+    "dev": "node_modules/grunt-cli/bin/grunt dev",
+    "default": "node_modules/grunt-cli/bin/grunt"
+  }
+}
