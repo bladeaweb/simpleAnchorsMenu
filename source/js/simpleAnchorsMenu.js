@@ -7,9 +7,9 @@
     factory(jQuery);
   }
 }(function ($) {
-  $.fn.simpleAnchorMenu = function (options) {
+  $.fn.simpleAnchorsMenu = function (options) {
     options = $.extend({
-      menu: "#subMenu",
+      menu: "",
       menuOutOfContainer: false,
       createMenu: false,
       newMenuSetting: {
@@ -20,6 +20,7 @@
       },
       startHeader: 2,
       lastHeader: 5,
+      addHeadersId: false,
       linkTextData: "text", // header attribute name for get link text.
       listItemAttributes: "", // tag <li> additional attributes
       listItemUlAttributes: "", // tag <li> additional attributes
@@ -33,31 +34,78 @@
         startHeader = parseInt(options.startHeader),
         lastHeader = parseInt(options.lastHeader),
         linkTextData = options.linkTextData,
+        addHeadersId = options.addHeadersId,
         listItemAttributes = options.listItemAttributes,
         listItemUlAttributes = options.listItemAttributes,
         itemAttributes = options.itemAttributes;
     var init = function init() {
-      listItemAttributes = listItemAttributes.replace(/data-header=".+"/i, '');
-      listItemUlAttributes = listItemUlAttributes.replace(/data-header-container=".+"/i, '');
-      itemAttributes = itemAttributes.replace(/href=".+"/i, '');
+      if (menu !== "") {
+        listItemAttributes = listItemAttributes.replace(/data-header=".+"/i, '');
+        listItemUlAttributes = listItemUlAttributes.replace(/data-header-container=".+"/i, '');
+        itemAttributes = itemAttributes.replace(/href=".+"/i, '');
+        if (createMenu) {
+          newMenuSetting.menuId = newMenuSetting.menuId === undefined ? "" : newMenuSetting.menuId;
+          newMenuSetting.menuClasses = newMenuSetting.menuClasses === undefined ? "" : newMenuSetting.menuClasses;
+          newMenuSetting.menuAttributes = newMenuSetting.menuAttributes === undefined ? "" : newMenuSetting.menuAttributes;
 
-      if (createMenu && $(newMenuSetting.parent).length > 0) {
-        newMenuSetting.menuId = newMenuSetting.menuId === undefined ? "" : newMenuSetting.menuId;
-        newMenuSetting.menuClasses = newMenuSetting.menuClasses === undefined ? "" : newMenuSetting.menuClasses;
-        newMenuSetting.menuAttributes = newMenuSetting.menuAttributes === undefined ? "" : newMenuSetting.menuAttributes;
-        $(newMenuSetting.parent).append('<ul id="'+newMenuSetting.menuId+'" class="'+newMenuSetting.menuClasses+'" '+newMenuSetting.menuAttributes+'></ul>')
+          switch (newMenuSetting.parent) {
+            case '':
+              createMenu = false;
+              console.error('Set up menu parent.');
+              break;
+            case undefined:
+              createMenu = false;
+              console.error('Set up menu parent.');
+              break;
+          }
+        }
+
+        for(var i = 0; i < element.length; i++){
+          if (createMenu) {
+            createMenuFunction(element[i]);
+          }
+          createMenuItem(element[i]);
+        }
       }
-
-      for(var i = 0; i < element.length; i++){
-        createMenuItem(element[i]);
+      else {
+        console.error('Set up menu parameter.')
       }
     }();
 
+    function createMenuFunction(element) {
+      if (createMenu) {
+        var newMenuSettingParent = '';
+
+        if (menuOutOfContainer) {
+          newMenuSettingParent = $('body').find(newMenuSetting.parent);
+        } else {
+          newMenuSettingParent = $(element).find(newMenuSetting.parent);
+        }
+
+        if ($(newMenuSettingParent).length > 0) {
+          $(newMenuSettingParent).append('<ul id="'+newMenuSetting.menuId+'" class="'+newMenuSetting.menuClasses+'" '+newMenuSetting.menuAttributes+'></ul>')
+        }
+      }
+    }
+
     function createMenuItem (element) {
       var menuElement = menuOutOfContainer ? $('body').find(menu) : $(element).find(menu);
+
       for (var i = startHeader; i <= lastHeader; i++) {
           headerItem = $(element).find('h'+i);
+
+        if (addHeadersId) {
+          var counter = 1;
+        }
+
         headerItem.each(function() {
+          if (addHeadersId) {
+            if (!$(this).attr('id')) {
+              $(this).attr('id', 'SAM-h'+i+'-'+counter)
+            }
+            counter++;
+          }
+
           if ($(this).attr('id')) {
             if (i > startHeader) {
               var parItem = false;
@@ -67,7 +115,7 @@
             }
 
             var parentItem = i === startHeader ? menuElement : parItem === false ? menuElement : $(menuElement).find('[data-header="'+$(parItem[0]).attr('id')+'"]'),
-                linkText = linkTextData === 'text' ? $(this).text() : $(this).attr(linkTextData),
+                linkText = linkTextData === 'text' ? $(this).text() : $(this).attr(linkTextData) ? $(this).attr(linkTextData) : $(this).text(),
                 headerId = $(this).attr('id'),
                 linkHref = '#'+headerId;
 
