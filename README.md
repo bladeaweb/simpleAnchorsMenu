@@ -5,9 +5,9 @@ v.1.1.0
 >It's a little jQuery module developed to help for website developers, when they need to create automatically and dinamicly menu items to headers with id's.
 
 ### What's new?
-> *Parameter "menu" is required.
-> *Added parameter and possibility to add id's automatically to headers inside of selected container.
-> *Fixed little problem when you select custom attribute to get link text from header but s header dosen't have it, for now if a header have no selected attribute from parameter "linkTextData", script will get text automatically of header.
+> * Parameter "menu" is required.
+> * Added parameter and possibility to add ids automatically into headers inside of selected container.
+> * Fixed little problem when you select custom attribute to get link text from header but a header dosen't have it, for now if a header have no selected attribute from parameter "linkTextData", script will get text automatically of header.
 
 ### [Demo](https://bladeaweb.github.io/simpleAnchorsMenu/)
 
